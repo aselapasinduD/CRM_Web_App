@@ -8,7 +8,7 @@
   </head>
   <body>
     {% include 'navbar.html' %}
-    <div class="root mx-5">
+    <div class="root offset-md-2 col-md-8">
       {% if messages %}
         <br />
         {% for message in messages %}
@@ -20,7 +20,6 @@
             <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         {% endfor %}
-        <br />
       {% endif %}
       {% block content %}
       {% endblock %}
