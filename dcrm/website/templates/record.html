@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="col-md-6 offset-md-3">
+    <br />
+    <div class="card">
+        <div class="card-header">
+            Record
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{customer_record.id}} : {{customer_record}}</h5>
+                <table>
+                    <tr>
+                        <td><strong>Email: </strong></td>
+                        <td class="px-4">:</td>
+                        <td>{{customer_record.email}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Phone Number </strong></td>
+                        <td class="px-4">:</td>
+                        <td>{{customer_record.phone}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Address </strong></td>
+                        <td class="px-4">:</td>
+                        <td>{{customer_record.address}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>City </strong></td>
+                        <td class="px-4">:</td>
+                        <td>{{customer_record.city}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>State </strong></td>
+                        <td class="px-4">:</td>
+                        <td>{{customer_record.state}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Zipcode </strong></td>
+                        <td class="px-4">:</td>
+                        <td>{{customer_record.zipcode}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Created At </strong></td>
+                        <td class="px-4">:</td>
+                        <td>{{customer_record.created_at}}</td>
+                    </tr>
+                </table>
+                <br />
+            <a href="#" class="btn btn-primary">Edit</a>
+        </div>
+    </div>
+    <br />
+    <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+    <a href="{% url 'delete_record' customer_record.id %}" class="btn btn-danger">Delete</a>
+</div>
+
+{% endblock %}

@@ -17,6 +17,7 @@
         <th scope="col">State</th>
         <th scope="col">Zipcode</th>
         <th scope="col">Created At</th>
+        <th scope="col">Record</th>
       </tr>
     </thead>
     <tbody>
@@ -32,6 +33,7 @@
             <td>{{record.state}}</td>
             <td>{{record.zipcode}}</td>
             <td>{{record.created_at}}</td>
+            <td><a class="btn btn-danger" href="{% url 'record' record.id %}">Show</a></td>
           </tr>
         {% endfor %}
       {% endif %}
@@ -39,7 +41,7 @@
   </table>
 
   {% else %}
-  <div class="col-md-10 offset-md-1"></div>
+  <div class="col-md-6 offset-md-3">
     <h1 class="mb-4">Login</h1>
     <form method="POST" action="{% url 'home' %}">
       {% csrf_token %}
