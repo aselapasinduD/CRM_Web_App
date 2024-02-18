@@ -22,7 +22,7 @@
       <tbody>
         {% if records %}
           {% for record in records %}
-            <tr>
+            <tr class="align-middle">
               <td>{{record.id}}</td>
               <td>{{record}}</td>
               <td>{{record.email}}</td>
@@ -36,12 +36,25 @@
             </tr>
           {% endfor %}
         {% endif %}
+        <tr>
+          <td colspan="10" class="clickable-row fs-4 text-center" role="button" data-href="{% url 'add_record' %}">+</td>
+        </tr>
       </tbody>
     </table>
 
   {% else %}
 
-    <h1>Landing Page</h1>
+    {% include 'landing_page.html' %}
     
   {% endif %}
+{% endblock %}
+
+{% block script %}
+      <script>
+        $(document).ready(function () {
+          $(".clickable-row").click(function () {
+              window.location.href = $(this).data("href");
+          });
+        });
+      </script>
 {% endblock %}
