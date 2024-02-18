@@ -24,6 +24,8 @@ def home(request):
     return render(request, 'home.html', {})
 
 def login_user(request):
+    if request.user.is_authenticated:
+        return redirect('home')
     return render(request, 'login.html', {})
 
 
