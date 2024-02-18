@@ -5,7 +5,10 @@ from .forms import SignUpForm, AddRecordForm
 from .models import Record
 
 def home(request):
-    # Check to see if logging in
+    if request.user.is_authenticated:
+        records = Record.objects.all()
+        return render(request, 'home.html', {'records': records})
+     # Check to see if logging in
     if request.method == 'POST':
         username = request.POST['user_name']
         password = request.POST['password']
@@ -17,9 +20,12 @@ def home(request):
             return redirect('home')
         else:
             messages.success(request, "There Was an Error Loggin in, Please Try Again.")
-            return redirect('home')
-    records = Record.objects.all()
-    return render(request, 'home.html', {'records': records})
+            return redirect('login')
+    return render(request, 'home.html', {})
+
+def login_user(request):
+    return render(request, 'login.html', {})
+
 
 def logout_user(request):
     logout(request)
