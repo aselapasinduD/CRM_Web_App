@@ -7,4 +7,4 @@ pip install -r requirements.txt
 python ./dcrm/manage.py collectstatic --no-input
 
 # Apply any outstanding database migrations
-python manage.py migrate
+python ./dcrm/manage.py migrate
