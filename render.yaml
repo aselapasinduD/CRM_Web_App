@@ -1,0 +1,22 @@
+databases:
+  - name: render.comPostgreSQL
+    plan: free
+    databaseName: crmsystemdb
+    user: crmuser
+
+services:
+  - type: web
+    plan: free
+    name: crm_web_app
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "python -m gunicorn crm_web_app.asgi:application -k uvicorn.workers.UvicornWorker"
+    envVars:
+      - key: POSTGRESQL_URL
+        fromDatabase:
+          name: render.comPostgreSQL
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
