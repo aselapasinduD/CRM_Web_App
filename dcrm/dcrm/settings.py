@@ -69,7 +69,7 @@ WSGI_APPLICATION = 'dcrm.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': env("ENGINE"),
-        'NAME': 'crmsystemDB',
+        'NAME': env("DBNAME"),
         'USER': env("USER"),
         'PASSWORD': env("PASSWORD"),
         'HOST': env("HOST"),
