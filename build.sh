@@ -8,3 +8,6 @@ python manage.py collectstatic --no-input
 
 # Apply any outstanding database migrations
 python manage.py migrate
+
+# Create Super User
+python manage.py createsuperuser --no-input
