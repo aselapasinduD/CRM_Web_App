@@ -5,6 +5,7 @@ colorama==0.4.6
 dj-database-url==2.1.0
 Django==5.0.2
 django-environ==0.11.2
+environ==1.0
 gunicorn==21.2.0
 h11==0.14.0
 mysql==0.0.3
