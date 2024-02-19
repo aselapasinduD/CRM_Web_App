@@ -10,4 +10,4 @@ python manage.py collectstatic --no-input
 python manage.py migrate
 
 # Create Super User
-py manage.py createsuperuser --no-input || echo "Already have a SuperUser"
+python manage.py createsuperuser --no-input || echo "Already have a SuperUser"
