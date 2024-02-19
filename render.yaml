@@ -10,7 +10,7 @@ services:
     name: crm_web_app
     runtime: python
     buildCommand: "./build.sh"
-    startCommand: "python -m gunicorn crm_web_app.asgi:application -k uvicorn.workers.UvicornWorker"
+    startCommand: "python -m gunicorn dcrm.asgi:application -k uvicorn.workers.UvicornWorker"
     envVars:
       - key: POSTGRESQL_URL
         fromDatabase:
