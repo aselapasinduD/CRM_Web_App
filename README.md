@@ -32,5 +32,21 @@ This file contain all the configuration for deploy the web app in render.com. yo
 
 You don't have to worry about DB this file will create DB for you and web app will migrate automatically.
 
+# build.sh
+
+This file contain all the commands that need to be run before run the server.
+- it will install all the dependencies that needed.
+- it will migrate if needed.
+- it will create SuperUser if SuperUser didn't exist.
+
+```bash
+./bash.sh
+```
+
 # Server
 
+I used gunicorn as a process manager, listening on a port an IP. and I used uvicorn as a workers handle the actual application communication, converting data to the ASGI standard for frameworks like FastAPI to use.
+
+```bash
+python -m gunicorn dcrm.asgi:application -k uvicorn.workers.UvicornWorkers
+```
