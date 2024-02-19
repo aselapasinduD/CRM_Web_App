@@ -22,3 +22,9 @@ services:
         value: 4
       - key: DEBUG
         value: False
+      - key: DJANGO_SUPERUSER_USERNAME
+        value: admin
+      - key: DJANGO_SUPERUSER_EMAIL
+        value: admin@demo.com
+      - key: DJANGO_SUPERUSER_PASSWORD
+        value: admin2001
